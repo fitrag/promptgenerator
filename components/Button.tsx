@@ -7,11 +7,11 @@ type ButtonProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({ children, variant = 'primary', isLoading = false, ...props }: ButtonProps): React.ReactNode => {
-  const baseClasses = 'px-6 py-3 font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 transition-all duration-200 ease-in-out inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'px-6 py-3 font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 transition-all duration-300 ease-in-out transform inline-flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100';
 
   const variantClasses = {
-    primary: 'text-white bg-indigo-600 hover:bg-indigo-500 focus:ring-indigo-500',
-    secondary: 'text-slate-200 bg-slate-700 hover:bg-slate-600 focus:ring-slate-500',
+    primary: 'text-white bg-gradient-to-br from-indigo-600 to-purple-700 hover:from-indigo-500 hover:to-purple-600 focus:ring-indigo-500 shadow-lg shadow-indigo-900/40 hover:shadow-indigo-700/50 active:scale-95 hover:scale-[1.03]',
+    secondary: 'text-slate-300 bg-slate-800 border border-slate-700 hover:bg-slate-700 hover:border-slate-600 focus:ring-slate-500 active:scale-95 hover:scale-[1.03] hover:text-white',
   };
 
   const loadingSpinner = (
