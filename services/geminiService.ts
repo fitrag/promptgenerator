@@ -1,6 +1,6 @@
 import { GoogleGenAI, GenerateContentResponse, Type } from "@google/genai";
 
-export const enhancePrompt = async (userPrompt: string, count: number, shotType: string, apiKey: string): Promise<string[]> => {
+export const enhancePrompt = async (userPrompt: string, count: number, shotType: string, style: string, apiKey: string): Promise<string[]> => {
   if (!apiKey || !apiKey.trim()) {
     throw new Error("Google Gemini API Key is required.");
   }
@@ -15,8 +15,17 @@ export const enhancePrompt = async (userPrompt: string, count: number, shotType:
     ? `For each variation, the camera composition must be a **${shotType}**. Emphasize this perspective in the description.`
     : `For each variation, choose a dynamic and interesting camera composition (e.g., close-up, wide shot, dutch angle) that best fits the scene.`;
 
+  let styleInstruction = `For each variation, choose a compelling art style that best fits the scene.`;
+    if (style && style.trim() !== '') {
+        if (style === 'Realistic / Photorealistic') {
+            styleInstruction = `Each prompt must describe a **photorealistic** image as if captured by a professional camera. Include details like camera lens (e.g., 85mm f/1.8), specific lighting setups (e.g., golden hour, studio lighting with softboxes), and a high level of detail to achieve a realistic look. The style should be hyper-realistic.`;
+        } else {
+            styleInstruction = `Each prompt must be in a **${style}** style. Emphasize this artistic direction in the description.`;
+        }
+    }
 
-  const metaPrompt = `You are an expert prompt engineer for advanced text-to-image AI models like Imagen. Your task is to take a user's simple idea and expand it into ${count} distinct, cohesive, and highly descriptive prompt variations. Each prompt should be a single paragraph, rich in detail, using vivid adjectives and evocative language to describe the subject, its actions, the setting, art style, lighting, and colors. ${shotTypeInstruction} Focus on creating visually stunning and unique scenes for each variation. Return the output as a JSON object with a single key "prompts" which is an array of strings. Do not add any other text, labels, or explanations.
+
+  const metaPrompt = `You are an expert prompt engineer for advanced text-to-image AI models like Imagen. Your task is to take a user's simple idea and expand it into ${count} distinct, cohesive, and highly descriptive prompt variations. Each prompt should be a single paragraph, rich in detail, using vivid adjectives and evocative language to describe the subject, its actions, and the setting. ${styleInstruction} ${shotTypeInstruction} Focus on creating visually stunning and unique scenes for each variation. Return the output as a JSON object with a single key "prompts" which is an array of strings. Do not add any other text, labels, or explanations.
 
 User's idea: "${userPrompt}"`;
 

@@ -30,18 +30,18 @@ const ApiKeyModal = ({ isOpen, onClose, onSave, currentApiKey }: ApiKeyModalProp
 
   return (
     <div 
-      className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 animate-fade-in"
+      className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in"
       onClick={handleOverlayClick}
     >
       <div 
-        className="bg-slate-800 border border-slate-700 rounded-lg shadow-2xl w-full max-w-md p-6 m-4"
+        className="bg-surface/80 backdrop-blur-xl border border-border rounded-lg shadow-2xl w-full max-w-md p-6 m-4"
         onClick={(e) => e.stopPropagation()} // Prevent closing modal when clicking inside
       >
         <div className="flex items-center gap-3">
-            <i className="fa-solid fa-key w-6 h-6 text-indigo-400"></i>
+            <i className="fa-solid fa-key w-6 h-6 text-primary"></i>
             <h2 className="text-xl font-bold text-white">Manage API Key</h2>
         </div>
-        <p className="text-slate-400 mt-2 mb-4">
+        <p className="text-muted mt-2 mb-4">
           Your API key is stored securely in your browser's local storage and is never sent to our servers.
         </p>
         <div className="space-y-4">
@@ -50,7 +50,7 @@ const ApiKeyModal = ({ isOpen, onClose, onSave, currentApiKey }: ApiKeyModalProp
             value={localApiKey}
             onChange={(e) => setLocalApiKey(e.target.value)}
             placeholder="Enter your Google Gemini API Key"
-            className="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
+            className="w-full bg-base border border-border rounded-lg p-3 text-slate-200 placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary transition duration-200"
             aria-label="Google Gemini API Key"
           />
           <div className="flex justify-end gap-3">

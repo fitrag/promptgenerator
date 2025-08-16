@@ -12,7 +12,7 @@ interface PromptInputProps {
 const PromptInput = ({ label, name, value, onChange, placeholder, rows = 2 }: PromptInputProps): React.ReactNode => {
   return (
     <div className="flex flex-col gap-2 animate-fade-in">
-      <label htmlFor={name} className="font-medium text-slate-300">
+      <label htmlFor={name} className="font-semibold text-slate-200">
         {label}
       </label>
       <textarea
@@ -22,7 +22,7 @@ const PromptInput = ({ label, name, value, onChange, placeholder, rows = 2 }: Pr
         onChange={onChange}
         placeholder={placeholder}
         rows={rows}
-        className="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
+        className="w-full bg-surface/50 border border-border rounded-lg p-3 text-slate-200 placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition duration-200 text-base"
       />
     </div>
   );

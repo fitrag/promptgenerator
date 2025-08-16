@@ -5,36 +5,45 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Image Prompt Crafter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
     <script>
       tailwind.config = {
         theme: {
           extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
             colors: {
-              'brand-blue': '#4A90E2',
-              'brand-purple': '#9013FE',
-              'cyan': '#22d3ee',
+              'base': '#0D1117',
+              'surface': '#161B22',
+              'muted': '#8B949E',
+              'primary': '#22d3ee',
+              'primary-hover': '#5ee6f8',
+              'secondary': '#a855f7',
+              'border': '#30363D',
             },
             animation: {
-              'gradient-x': 'gradient-x 15s ease infinite',
-              'fade-in': 'fade-in 0.5s ease-out forwards',
-              'fade-in-stagger': 'fade-in 0.5s ease-out forwards',
+              'fade-in': 'fade-in 0.6s ease-out forwards',
+              'fade-in-stagger': 'fade-in 0.6s ease-out forwards',
+              'gradient-bg': 'gradient-bg 20s ease infinite',
             },
             keyframes: {
-              'gradient-x': {
-                '0%, 100%': {
-                  'background-size': '200% 200%',
-                  'background-position': 'left center',
-                },
-                '50%': {
-                  'background-size': '200% 200%',
-                  'background-position': 'right center',
-                },
-              },
               'fade-in': {
-                '0%': { opacity: 0, transform: 'translateY(10px)' },
-                '100%': { opacity: 1, transform: 'translateY(0)' },
+                '0%': { opacity: 0, transform: 'translateY(15px) scale(0.98)' },
+                '100%': { opacity: 1, transform: 'translateY(0) scale(1)' },
+              },
+              'gradient-bg': {
+                '0%, 100%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
               }
             }
           }
@@ -52,7 +61,7 @@
 }
 </script>
 </head>
-  <body class="bg-slate-900">
+  <body class="bg-base">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
