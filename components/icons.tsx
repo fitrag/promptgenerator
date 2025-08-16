@@ -1,16 +1,24 @@
 import React from 'react';
 
-export const SparkleIcon = ({ className }: { className?: string }): React.ReactNode => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className={className}>
-    <path fillRule="evenodd" d="M10 2.5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 2.5zM5.134 6.134a.75.75 0 011.06 0l2.475 2.475a.75.75 0 01-1.06 1.06L5.134 7.195a.75.75 0 010-1.06zM2.5 10a.75.75 0 01.75-.75h3.5a.75.75 0 010 1.5h-3.5A.75.75 0 012.5 10zm1.634 4.866a.75.75 0 010-1.06l2.475-2.475a.75.75 0 111.06 1.06L5.195 14.866a.75.75 0 01-1.06 0zM10 17.5a.75.75 0 01-.75-.75v-3.5a.75.75 0 011.5 0v3.5a.75.75 0 01-.75.75zM12.805 9.634a.75.75 0 011.06 0l2.475 2.475a.75.75 0 01-1.06 1.06l-2.475-2.475a.75.75 0 010-1.06zM17.5 10a.75.75 0 01-.75.75h-3.5a.75.75 0 010-1.5h3.5a.75.75 0 01.75.75zM14.866 5.134a.75.75 0 010 1.06l-2.475 2.475a.75.75 0 01-1.06-1.06L13.805 5.134a.75.75 0 011.06 0z" clipRule="evenodd" />
+export const WandIcon = ({ className }: { className?: string }): React.ReactNode => (
+  <svg xmlns="http://www.w.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c.238.13.48.264.72.408m.72.408a2.25 2.25 0 002.28 2.28m2.28-2.28c.44-.24.852-.514 1.23-.811m-1.23.811L15 14.5M9.75 3.104a2.25 2.25 0 00-2.28-2.28M9.75 3.104a2.25 2.25 0 012.28-2.28m0 0A2.25 2.25 0 0115 .824m-2.28 2.28A2.25 2.25 0 0015 5.384m-2.28 2.28a2.25 2.25 0 01-2.28 2.28m2.28-2.28a2.25 2.25 0 002.28 2.28m-2.28-2.28L5 14.5m10-9.116a2.25 2.25 0 00-2.28-2.28M15 5.384a2.25 2.25 0 012.28-2.28M15 5.384a2.25 2.25 0 00-2.28 2.28m2.28-2.28L9.75 11.5m5.25-6.116A2.25 2.25 0 009.75 3.104m5.25 2.28a2.25 2.25 0 012.28 2.28m0 0a2.25 2.25 0 01-2.28 2.28m2.28-2.28L9.75 11.5m0-8.396A2.25 2.25 0 007.47.824M7.47.824A2.25 2.25 0 005.19 3.104M5.19 3.104A2.25 2.25 0 007.47 5.384M7.47 5.384L9.75 11.5M5.19 3.104L9.75 11.5M15 14.5l-5.25 5.25a2.25 2.25 0 01-3.182 0l-1.06-1.06a2.25 2.25 0 010-3.182L10.5 10.5M15 14.5L10.5 10.5" />
   </svg>
 );
+
 
 export const CopyIcon = ({ className }: { className?: string }): React.ReactNode => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
   </svg>
 );
+
+export const CheckIcon = ({ className }: { className?: string }): React.ReactNode => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+    </svg>
+);
+
 
 export const MenuIcon = ({ className }: { className?: string }): React.ReactNode => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
