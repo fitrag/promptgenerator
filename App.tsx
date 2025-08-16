@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useEffect } from 'react';
 import { enhancePrompt } from './services/geminiService';
 import PromptInput from './components/PromptInput';
@@ -191,16 +192,52 @@ const App = (): React.ReactNode => {
     </>
   );
 
-  const LoadingState = () => (
-    <div className="flex flex-col justify-center items-center min-h-[120px] text-center">
-      <div className="relative flex items-center justify-center">
-        <div className="absolute h-16 w-16 rounded-full border-2 border-primary/20"></div>
-        <div className="absolute h-16 w-16 rounded-full border-t-2 border-primary animate-spin" style={{ animationDuration: '1s' }}></div>
-        <i className="fa-solid fa-wand-magic-sparkles w-6 h-6 text-primary"></i>
+  const LoadingState = ({ count }: { count: number }) => {
+    const loadingMessages = [
+      "Consulting the digital muse...",
+      "Brewing up creative variations...",
+      "Polishing the perfect words...",
+      "Painting with algorithms...",
+      "Crafting detailed scenarios...",
+    ];
+    const [message, setMessage] = useState(loadingMessages[0]);
+  
+    useEffect(() => {
+      let index = 0;
+      const intervalId = setInterval(() => {
+        index = (index + 1) % loadingMessages.length;
+        setMessage(loadingMessages[index]);
+      }, 2500);
+  
+      return () => clearInterval(intervalId);
+    }, []);
+  
+    const SkeletonCard = () => (
+      <div className="relative bg-surface/50 backdrop-blur-sm p-4 rounded-lg border border-border shadow-lg shadow-black/10">
+        <div className="space-y-3 animate-pulse">
+          <div className="h-2 bg-slate-700/50 rounded"></div>
+          <div className="grid grid-cols-3 gap-4">
+            <div className="h-2 bg-slate-700/50 rounded col-span-2"></div>
+            <div className="h-2 bg-slate-700/50 rounded col-span-1"></div>
+          </div>
+          <div className="grid grid-cols-4 gap-4">
+            <div className="h-2 bg-slate-700/50 rounded col-span-3"></div>
+            <div className="h-2 bg-slate-700/50 rounded col-span-1"></div>
+          </div>
+          <div className="h-2 bg-slate-700/50 rounded"></div>
+        </div>
       </div>
-      <p className="text-muted mt-4">Crafting your prompts with AI...</p>
-    </div>
-  );
+    );
+  
+    return (
+      <div className="space-y-4">
+        {Array.from({ length: count }).map((_, index) => (
+          <SkeletonCard key={index} />
+        ))}
+        <p className="text-muted text-center pt-4 transition-opacity duration-500">{message}</p>
+      </div>
+    );
+  };
 
   return (
     <div className="font-sans bg-base text-white">
@@ -237,7 +274,7 @@ const App = (): React.ReactNode => {
         {/* Main Content */}
         <main className="flex-1 p-4 sm:p-6 lg:p-8 pt-24 md:pt-8">
           <div className="max-w-4xl mx-auto">
-            <div className="space-y-10">
+            <div className="space-y-10 mt-14">
               <div className="bg-surface/50 backdrop-blur-sm border border-border rounded-2xl p-6 shadow-2xl shadow-black/20">
                 <PromptInput 
                     label="Your Core Idea" 
@@ -264,7 +301,7 @@ const App = (): React.ReactNode => {
                   Generated Prompts
                 </h2>
                 <div className="space-y-4">
-                    {isLoading && <LoadingState />}
+                    {isLoading && <LoadingState count={numPrompts} />}
                     {!isLoading && finalPrompts.length === 0 && (
                       <div className="flex justify-center items-center min-h-[120px] rounded-lg border-2 border-dashed border-border">
                         <p className="text-muted text-center">Your AI-generated prompts will appear here...</p>
